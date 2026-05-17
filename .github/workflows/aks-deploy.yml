@@ -10,7 +10,7 @@ jobs:
   deploy:
    runs-on: ubuntu-latest
    steps:
-   - name: Azure Login 
+   - name: Checkout code 
      uses: actions/checkout@v4
 
    - name: Azure Login
@@ -28,3 +28,5 @@ jobs:
      run: |
       kubectl apply -f deployment.yml
       kubectl apply -f service.yml
+      kubectl get pods
+      kubectl get svc

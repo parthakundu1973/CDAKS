@@ -1,18 +1,19 @@
-﻿apiVesrion: apps/v1
+﻿apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: acraks-deployment
 spec:
-  replicas:1
+  replicas: 1
   selector:
    matchLabels:
       app: acraks
 template:
   metadata:
     labels:
-      apps:acraks
+      app: acraks
   spec:
     containers:
-    image: parthakundu1973/acraks:latest
-    ports:
-     containerPort:80
+    - name: acraks
+      image: parthakundu1973/acraks:latest
+      ports:
+       - containerPort: 80
