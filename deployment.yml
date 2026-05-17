@@ -7,13 +7,13 @@ spec:
   selector:
    matchLabels:
       app: acraks
-template:
-  metadata:
-    labels:
-      app: acraks
-  spec:
-    containers:
-    - name: acraks
-      image: parthakundu1973/acraks:latest
-      ports:
-       - containerPort: 80
+  template:
+    metadata:
+      labels:
+        app: acraks
+    spec:
+      containers:
+      - name: acraks
+        image: parthakundu1973/acraks:latest
+        ports:
+         - containerPort: 80
