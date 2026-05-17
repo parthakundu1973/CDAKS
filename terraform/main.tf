@@ -1,4 +1,4 @@
-resource "azure_resource_group"  "rg" {
+resource "azurerm_resource_group"  "rg" {
     name    =   "CICDAKS_RG"
     location = "UK West"
 
