@@ -1,0 +1,30 @@
+name : Deploy to AKS
+on:
+ push:
+   branches:
+    - main
+env:
+  RESOURCE_GROUP: CICDAKS_RG
+  CLUSTER_NAME: AKSCLUSTER
+jobs:
+  deploy:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Azure Login 
+     uses: actions/checkout@v4
+
+   - name: Azure Login
+     uses: azure/login@v2
+     with:
+      creds: ${{secrets.AZURE_CREDENTIALS}}
+
+   - name: Set AKS context
+     uses: azure/aks-set-context@v4
+     with:
+      resource-group: ${{env.RESOURCE_GROUP}}
+      cluster-name:  ${{env.CLUSTER_NAME}}
+
+   - name: Deploy to AKS
+     run: |
+      kubectl apply -f deployment.yml
+      kubectl apply -f service.yml
