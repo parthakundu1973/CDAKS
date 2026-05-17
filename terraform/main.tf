@@ -4,6 +4,7 @@ resource "azurerm_resource_group"  "rg" {
 
 } 
 
+
 resource "azurerm_kubernetes_cluster" "aks" {
     name    ="AKSCLUSTER"
     location    = azurerm_resource_group.rg.location
@@ -15,7 +16,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     default_node_pool {
     name = "default"
     node_count = 1
-    vm_size = "Standard_B2s_v2"
+    vm_size = "Standard_B2s"
 
     }
 
